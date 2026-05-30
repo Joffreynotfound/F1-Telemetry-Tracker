@@ -4,10 +4,10 @@ Cette roadmap decoupe le projet en petites evolutions faciles a developper, test
 
 ## Ameliorations fonctionnelles
 
-- Ajouter un menu deroulant pour choisir le pilote
-- Ajouter plus de Grands Prix disponibles
-- Ajouter les saisons 2024 et 2025
-- Afficher le temps du tour le plus rapide
+- [x] Ajouter un menu deroulant pour choisir le pilote
+- [x] Ajouter plus de Grands Prix disponibles
+- [x] Ajouter les saisons 2024 et 2025
+- [x] Afficher le temps du tour le plus rapide
 - Comparer deux pilotes sur le meme graphique
 - Ajouter un graphique throttle/brake
 - Ajouter un graphique RPM/vitesse
@@ -26,8 +26,8 @@ Cette roadmap decoupe le projet en petites evolutions faciles a developper, test
 
 ## Experience utilisateur
 
-- Ajouter un message clair quand FastF1 ne trouve pas une session
+- [x] Ajouter un message clair quand FastF1 ne trouve pas une session
 - Ajouter des explications courtes sur les abreviations de session
-- Ajouter une option pour telecharger les donnees du tour en CSV
+- [x] Ajouter une option pour telecharger les donnees du tour en CSV
 - Ajouter un theme visuel coherent avec la F1
-- Ajouter des indicateurs de chargement plus precis
+- [x] Ajouter des indicateurs de chargement plus precis
