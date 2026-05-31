@@ -18,7 +18,7 @@ Cette roadmap decoupe le projet en petites evolutions faciles a developper, test
 ## Qualite projet
 
 - Ajouter des tests unitaires sur les fonctions de preparation des donnees
-- Separer la logique FastF1 dans un module `telemetry.py`
+- [x] Separer la logique FastF1 dans un module `telemetry.py`
 - Ajouter une configuration Streamlit dans `.streamlit/config.toml`
 - Ajouter un workflow GitHub Actions de verification syntaxique
 - Ajouter un formatage automatique avec Ruff

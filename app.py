@@ -1,13 +1,10 @@
-from pathlib import Path
-
-import fastf1
 import matplotlib.pyplot as plt
 import streamlit as st
 
+from telemetry import enable_fastf1_cache, get_fastest_lap_telemetry
 
-CACHE_DIR = Path("./cache")
-CACHE_DIR.mkdir(exist_ok=True)
-fastf1.Cache.enable_cache(str(CACHE_DIR))
+
+enable_fastf1_cache()
 
 YEARS = [2022, 2023, 2024, 2025]
 GRANDS_PRIX = {
@@ -61,29 +58,7 @@ st.set_page_config(
 
 @st.cache_data(show_spinner=False)
 def load_fastest_lap_telemetry(year: int, grand_prix: str, session_type: str, driver: str):
-    session = fastf1.get_session(year, grand_prix, session_type)
-    session.load()
-
-    driver_laps = session.laps.pick_drivers(driver)
-    if driver_laps.empty:
-        raise ValueError(f"Aucun tour trouvé pour le pilote {driver}.")
-
-    fastest_lap = driver_laps.pick_fastest()
-    if fastest_lap is None:
-        raise ValueError(f"Impossible de déterminer le tour le plus rapide de {driver}.")
-
-    telemetry = fastest_lap.get_car_data().add_distance()
-    if telemetry.empty or "Speed" not in telemetry.columns or "Distance" not in telemetry.columns:
-        raise ValueError("La télémétrie de vitesse/distance est indisponible pour ce tour.")
-
-    lap_time = fastest_lap.get("LapTime")
-    lap_number = fastest_lap.get("LapNumber")
-
-    return {
-        "telemetry": telemetry[["Distance", "Speed"]].dropna(),
-        "lap_time": lap_time,
-        "lap_number": lap_number,
-    }
+    return get_fastest_lap_telemetry(year, grand_prix, session_type, driver)
 
 
 st.title("F1 Telemetry Tracker")
